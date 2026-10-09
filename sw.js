@@ -1,63 +1,97 @@
-/*const CACHE_NAME = 'baraplus-v2';
-const STATIC_ASSETS = [
-  '/bara-plus/',
-  '/bara-plus/index.html',
-  '/bara-plus/assets/css/superapp.css',
-  '/bara-plus/assets/images/2.png',
-  '/bara-plus/assets/images/3.png',
-  '/bara-plus/pages/restaurants.html'
+// ═══════════════════════════════════════════
+// SERVICE WORKER — Kulmiyeh PWA
+// Stratégie :
+//   - HTML       → network-first (fraîcheur)
+//   - Assets     → cache-first   (vitesse)
+//   - Hors-ligne → fallback offline.html
+// ═══════════════════════════════════════════
+
+const CACHE_VERSION = 'kulmiyeh-v1.0.0';
+const STATIC_CACHE  = `${CACHE_VERSION}-static`;
+const RUNTIME_CACHE = `${CACHE_VERSION}-runtime`;
+
+// Fichiers mis en cache dès l'installation
+const PRECACHE_URLS = [
+  '/',
+  '/index.html',
+  '/offline.html',
+  '/manifest.json',
+  '/assets/css/superapp.css',
+  '/assets/js/index.js',
+  '/assets/images/2.png',
+  '/assets/images/3.png',
+  '/assets/images/icon-192.png',
+  '/assets/images/icon-512.png'
 ];
 
-// Installation : cache des ressources critiques
-self.addEventListener('install', (e) => {
-  e.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => cache.addAll(STATIC_ASSETS))
+// ── INSTALL : précache des fichiers statiques ──
+self.addEventListener('install', (event) => {
+  event.waitUntil(
+    caches.open(STATIC_CACHE)
+      .then(cache => cache.addAll(PRECACHE_URLS))
+      .then(() => self.skipWaiting()) // active immédiatement
   );
-  self.skipWaiting(); // active immédiatement le nouveau SW
 });
 
-// Nettoyage des anciens caches
-self.addEventListener('activate', (e) => {
-  e.waitUntil(
-    caches.keys().then((keys) => Promise.all(
-      keys.map((key) => {
-        if (key !== CACHE_NAME) return caches.delete(key);
-      })
-    ))
+// ── ACTIVATE : nettoyage des anciens caches ──
+self.addEventListener('activate', (event) => {
+  event.waitUntil(
+    caches.keys().then(keys =>
+      Promise.all(
+        keys
+          .filter(k => k !== STATIC_CACHE && k !== RUNTIME_CACHE)
+          .map(k => caches.delete(k))
+      )
+    ).then(() => self.clients.claim())
   );
-  self.clients.claim(); // prend le contrôle immédiatement
 });
 
-// Stratégie Cache-first avec fallback réseau + offline fallback
-self.addEventListener('fetch', (e) => {
-  e.respondWith(
-    caches.match(e.request).then((cached) => {
+// ── FETCH : stratégie par type de requête ──
+self.addEventListener('fetch', (event) => {
+  const { request } = event;
+  const url = new URL(request.url);
+
+  // Ignore les requêtes non-GET et cross-origin (ex: bookingedr.et)
+  if (request.method !== 'GET') return;
+  if (url.origin !== self.location.origin) return;
+
+  // Navigation (pages HTML) → network-first + fallback offline
+  if (request.mode === 'navigate') {
+    event.respondWith(
+      fetch(request)
+        .then(response => {
+          const copy = response.clone();
+          caches.open(RUNTIME_CACHE).then(c => c.put(request, copy));
+          return response;
+        })
+        .catch(() =>
+          caches.match(request)
+            .then(cached => cached || caches.match('/offline.html'))
+        )
+    );
+    return;
+  }
+
+  // Assets (CSS, JS, images, fonts) → cache-first
+  event.respondWith(
+    caches.match(request).then(cached => {
       if (cached) return cached;
-      return fetch(e.request).then((networkResponse) => {
-        // Mettre en cache les nouvelles ressources dynamiques (optionnel)
-        if (networkResponse && networkResponse.status === 200) {
-          const responseClone = networkResponse.clone();
-          caches.open(CACHE_NAME).then((cache) => cache.put(e.request, responseClone));
+      return fetch(request).then(response => {
+        // Ne cache que les réponses valides
+        if (!response || response.status !== 200 || response.type === 'opaque') {
+          return response;
         }
-        return networkResponse;
-      }).catch(() => {
-        // Fallback pour les pages HTML (évite écran blanc)
-        if (e.request.headers.get('accept').includes('text/html')) {
-          return caches.match('/index.html');
-        }
-        return new Response('Hors ligne – Bara+ revient bientôt', { status: 503 });
+        const copy = response.clone();
+        caches.open(RUNTIME_CACHE).then(c => c.put(request, copy));
+        return response;
       });
     })
   );
 });
-*/
 
-// Désactivation du Service Worker
-self.addEventListener('install', () => self.skipWaiting());
-self.addEventListener('activate', (event) => {
-  event.waitUntil(
-    caches.keys().then((keys) =>
-      Promise.all(keys.map((key) => caches.delete(key)))
-    ).then(() => self.clients.claim())
-  );
+// ── MESSAGE : permet à la page de forcer une mise à jour ──
+self.addEventListener('message', (event) => {
+  if (event.data && event.data.type === 'SKIP_WAITING') {
+    self.skipWaiting();
+  }
 });

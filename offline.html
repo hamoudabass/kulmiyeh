@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hors-ligne — Kulmiyeh</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, 'Inter', sans-serif;
+      background: linear-gradient(135deg, #8B0000 0%, #C62828 60%, #E65100 100%);
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      color: white; text-align: center; padding: 24px;
+    }
+    .box { max-width: 420px; }
+    .icon { font-size: 72px; margin-bottom: 16px; }
+    h1 { font-size: 26px; font-weight: 800; margin-bottom: 12px; }
+    p { opacity: 0.85; line-height: 1.6; margin-bottom: 28px; }
+    button {
+      background: #FFB300; color: #8B0000; border: none;
+      padding: 14px 32px; border-radius: 50px;
+      font-weight: 800; font-size: 15px; cursor: pointer;
+    }
+    button:active { transform: scale(0.97); }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="icon">📡</div>
+    <h1>Pas de connexion</h1>
+    <p>Kulmiyeh a besoin d'Internet pour afficher les commerces.<br>Vérifiez votre réseau et réessayez.</p>
+    <button onclick="location.reload()">🔄 Réessayer</button>
+  </div>
+</body>
+</html>

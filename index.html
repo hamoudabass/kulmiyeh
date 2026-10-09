@@ -1,23 +1,4 @@
 <!DOCTYPE html>
-<!-- 
-  ═══════════════════════════════════════════════════════
-  BARA+ — Page d'accueil (index.html)
-  Site de livraison à domicile — Ali Sabieh, Djibouti
-  ═══════════════════════════════════════════════════════
-  STRUCTURE DE LA PAGE :
-  1. <head>     → métadonnées, polices, CSS
-  2. <header>   → barre de navigation fixe
-  3. #mobileMenu → menu hamburger (mobile)
-  4. .hero      → section principale avec image
-  5. .how       → "Comment ça marche" (3 étapes)
-  6. .services  → présentation Bara+ Food
-  7. .pass-section → les 3 abonnements mensuels
-  8. .zones     → zones de livraison + tarifs
-  9. .testimonials → avis clients
-  10. .cta      → appel à l'action WhatsApp
-  11. <footer>  → liens, réseaux sociaux, contact
-  12. <script>  → JavaScript : badge, menu, animations
--->
 <html lang="fr">
 <head>
 
@@ -31,19 +12,16 @@
   <!-- Titre qui apparaît dans l'onglet du navigateur -->
   <!-- SEO pivot marketplace -->
   <title>KULMIYEH — Marketplace Ali Sabieh · Commandez en direct</title>
-  <meta name="description" content="Bara+ connecte les habitants d'Ali Sabieh à leurs commerces préférés. 
+  <meta name="description" content="kulmiyeh connecte les habitants d'Ali Sabieh à leurs commerces préférés. 
   Commandez directement chez Lados, Aska Food, Iftin, Pharmacie Al Shifa — sans intermédiaire.">
   <meta name="keywords" content="marketplace Ali Sabieh, commande en ligne Djibouti, 
               livraison Ali Sabieh, restaurant Ali Sabieh, KULMIYEH">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://hamoudabass.github.io/bara-plus/">
+  <link rel="canonical" href="https://kulmiyeh.vercel.app/">
 
   <!-- Open Graph (pour Google + réseaux sociaux) -->
-  <meta property="og:title" content="KULMIYEH — Marketplace Ali Sabieh">
-  <meta property="og:description" content="Commandez en direct chez vos commerçants à Ali Sabieh, Djibouti.">
-  <meta property="og:url" content="https://hamoudabass.github.io/bara-plus/">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="https://hamoudabass.github.io/bara-plus/assets/images/2.png">
+  <meta property="og:url" content="https://kulmiyeh.vercel.app/">
+  <meta property="og:image" content="https://kulmiyeh.vercel.app/assets/images/icon-512.png">
 
   <!-- Polices Google Fonts :
        Poppins → titres, boutons, nombres (gras et impact)
@@ -56,15 +34,16 @@
   <!-- Icône dans l'onglet du navigateur (favicon) -->
   <link rel="shortcut icon" href="assets/images/3.png" type="image/x-icon">
 
-  <!-- Bara+ en PWA (Progressive Web App) -->
-  <link rel="manifest" href="./manifest.json">
-  <meta name="theme-color" content="#8B0000">
-  <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#FFF5F7">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="Bara+">
-  <link rel="apple-touch-icon" href="/bara-plus/assets/images/3.png">
+<!-- ── PWA Kulmiyeh ── -->
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#8B0000">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Kulmiyeh">
+<link rel="apple-touch-icon" href="assets/images/icon-192.png">
+
+<!-- iOS Splash (optionnel — pour un rendu natif) -->
+<meta name="mobile-web-app-capable" content="yes">
 
 
   <meta name="google-site-verification" content="rOBrHkuSklMayeENMSCEyJG_f-HqJ2Pzy0VT8Q4oxWs" />
@@ -78,7 +57,7 @@
      ═══════════════════════════════════════════ -->
 <header id="header">
 
-  <!-- Logo Bara+ (image PNG) — hauteur 90px dans le CSS -->
+  <!-- Logo Kulmiyeh (image PNG) — hauteur 90px dans le CSS -->
   <img src="assets/images/2.png" class="logo-img">
 
   <!-- Fallback texte si l'image logo ne charge pas -->
@@ -154,118 +133,16 @@
 
 
 <!-- ═══════════════════════════════════════════
-     SECTION HERO — Première section visible
-     min-height:100vh → occupe tout l'écran au chargement
-     Dégradé rouge → orange en arrière-plan
-     Divisée en 2 colonnes : texte (55%) + image (45%)
-     ═══════════════════════════════════════════ -->
-<!-- ═══════════════════════════════════════════
-     HERO — version super app avec image et badges
-     ═══════════════════════════════════════════ -->
-<section class="hero" id="accueil">
-
-  <!-- Colonne gauche : texte + statistiques + boutons -->
-  <div class="hero-content">
-    <div class="hero-badge">🔥 Nouveau à Ali Sabieh</div>
-    <h1>KULMIYEH <br> La 1ère Marketplace <span>Assajog</span></h1>
-    <p>Commandez repas, médicaments, produits et services — directment chez vos commerçants préférés !</p>
-
-    <!-- Statistiques revisitées pour la super app -->
-    <div class="hero-stats">
-      <div class="stat">
-        <div class="stat-num">5<span style="font-size:18px">+</span></div>
-        <div class="stat-label">Partenaires actifs</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">20<span style="font-size:18px">+</span></div>
-        <div class="stat-label">Produits disponibles</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">100<span style="font-size:18px">%</span></div>
-        <div class="stat-label">Local – Ali Sabieh</div>
-      </div>
-    </div>
-
-    <!-- Boutons d'action -->
-    <div class="hero-btns">
-      <a href="#services" class="btn-primary">🛍️ Découvrir les commerçants →</a>
-      <a href="https://wa.me/25377784312?text=Bonjour%20Bara%2B%20je%20veux%20commander" target="_blank" class="btn-secondary">📱 Commander sur WhatsApp</a>
-    </div>
-  </div>
-
-  <!-- Colonne droite : image animée + badges flottants -->
-  <div class="hero-visual">
-    <div class="hero-img-wrap">
-      <!-- Image plus moderne : mix de plats et de produits (Unsplash) -->
-      <img src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?w=600&q=80" alt="Bara+ Super App" class="hero-food-img">
-      <div class="badge-float b1">💊 Pharmacie dispo</div>
-      <div class="badge-float b2">🍔 Restaurants bientôt</div>
-      <div class="badge-float b3">✨ + de services à venir</div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════
-     SECTION HOW IT WORKS — "Comment ça marche"
-     3 cartes en grille (grid-template-columns: repeat(3,1fr))
-     Chaque carte a un numéro absolu en haut (position:absolute)
-     ═══════════════════════════════════════════ -->
-<section class="how" id="comment">
-  <!-- section-tag → petit badge rouge arrondi -->
-  <div class="section-tag">Simple et rapide</div>
-  <!-- section-title → grand titre, <span> en rouge -->
-  <h2 class="section-title">Comment ça <span>marche</span> ?</h2>
-  <p class="section-sub">En 3 étapes, KULMIYEH transmet votre commande au commerçant, 
-    qui la prépare puis vous la livre ou vous la récupérer sur place.
-  </p>
-
-  <!-- Grille de 3 cartes étapes -->
-  <div class="steps">
-
-    <!-- Étape 1 — step-num en position absolue au-dessus de la carte -->
-    <div class="step">
-      <div class="step-num">1</div>  <!-- Cercle rouge avec le chiffre -->
-      <div class="step-icon">🏪</div>
-      <h3>Choisissez votre commerce</h3>
-      <p>Parcourez nos partenaires : restaurants ou pharmacie. 
-        Ajoutez vos articles au panier en quelques secondes, depuis votre téléphone ou ordinateur.</p>
-    </div>
-
-    <!-- Étape 2 -->
-    <div class="step">
-      <div class="step-num">2</div>
-      <div class="step-icon">🛒</div>
-      <h3>Validez votre panier</h3>
-      <p>Vérifiez votre commande, indiquez votre nom ainsi votre quartier et choisissez entre livraison à domicile
-         ou récupérer sur place vous-même. </p>
-    </div>
-
-    <!-- Étape 3 -->
-    <div class="step">
-      <div class="step-num">3</div>
-      <div class="step-icon">📲</div>
-      <h3>Livré chez vous</h3>
-      <p>Votre commande est envoyée directement sur le WhatsApp du commerçant. 
-        Il confirme, prépare et vous livre — ou vous passez récupérer sur place.
-      </p>
-    </div>
-
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════
-     SECTION SERVICES — Présentation Bara+ Food
-     service-card → grille 2 colonnes (info + visuel)
-     Sur mobile → 1 colonne (CSS media query)
+     SECTION SERVICES — Présentation services de Kulmiyeh
      ═══════════════════════════════════════════ -->
 <section class="services" id="services">
 
-     <div class="section">
-  <div class="section-header">
-    <div class="pill">🏪 Nos Services</div>
-    <h2>Que voulez-vous <span>recevoir</span> ?</h2>
-    <p>Choisissez votre service et commandez en quelques secondes.</p>
-  </div>
+    <div class="section">
+    <div class="section-header">
+      <div class="pill">🏪 Nos Services</div>
+      <h2>Que voulez-<span>vous</span> ?</h2>
+      <p>Choisissez votre service et commandez en quelques secondes.</p>
+    </div>
 
   <div class="services-grid">
 
@@ -355,7 +232,7 @@
       </div>
     </div>
 
-    <!-- 🔒 CARTE 5 : QUINCAILLERIE 
+    <!-- 🔒 CARTE 5 : QUINCAILLERIE -->
     <div class="sc soon fi">
       <div class="sc-img bg-hardware">
         <div class="sc-icon-wrap">🔧</div>
@@ -374,9 +251,9 @@
           <button class="sc-btn soon-btn" disabled>Bientôt →</button>
         </div>
       </div>
-    </div> -->
+    </div> 
 
-    <!-- 🔒 CARTE 4 : BOUTIQUES MODE 
+    <!-- 🔒 CARTE 4 : BOUTIQUES MODE -->
     <div class="sc soon fi">
       <div class="sc-img bg-fashion">
         <div class="sc-icon-wrap">👗</div>
@@ -394,9 +271,9 @@
           <button class="sc-btn soon-btn" disabled>Bientôt →</button>
         </div>
       </div>
-    </div> -->
+    </div> 
 
-    <!-- 🔒 CARTE 5 : TRANSPORT BAJAJ 
+    <!-- 🔒 CARTE 5 : TRANSPORT BAJAJ -->
     <div class="sc soon fi">
       <div class="sc-img bg-transport">
         <div class="sc-icon-wrap">🛺</div>
@@ -415,92 +292,14 @@
           <button class="sc-btn soon-btn" disabled>Bientôt →</button>
         </div>
       </div>
-    </div> -->
+    </div> 
 
     
 
   </div>
 </div>
  </section>
-<!-- ═══════════════════════════════════════════
-     SECTION TESTIMONIALS — Avis clients
-     3 cartes en grille (repeat(3,1fr))
-     La carte du milieu a un style inversé (fond rouge)
-     review-card::before → grande guillemet décorative en CSS
-     ═══════════════════════════════════════════ -->
-<section class="testimonials" id="avis">
-  <div class="testimonials-header">
-    <div class="section-tag">Ils nous font confiance</div>
-    <h2 class="section-title">Ce que disent nos <span>clients</span></h2>
-  </div>
 
-  <div class="reviews-grid">
-
-    <!-- Avis 1 — style normal (fond gris clair) -->
-    <div class="review-card">
-      <div class="stars">⭐⭐⭐⭐⭐</div>
-      <p class="review-text">"KULMIYEH me simplifie la vie ! Je commande chez Iftin en 2 clics,
-         la commande part directement sur leur WhatsApp et je suis livré en moins d’une heure. Parfait."</p>
-      <div class="reviewer">
-        <!-- Avatar : cercle avec initiale (pas de photo) -->
-        <div class="reviewer-avatar">SO</div>
-        <div>
-          <div class="reviewer-name">Sahal Omar</div>
-          <div class="reviewer-loc">📍 Q.Ali</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Avis 2 — style inversé (fond dégradé rouge, texte blanc)
-         Appliqué directement en style inline pour ce cas unique -->
-    <div class="review-card" style="background: linear-gradient(135deg, var(--red-dark), var(--orange)); color: white;">
-      <div class="stars">⭐⭐⭐⭐⭐</div>
-      <p class="review-text" style="color: rgba(255,255,255,0.9);">"Ce que j’aime avec KULMIYEH, c’est le contact direct avec Lados. Le commerçant connaît mon quartier, confirme le prix et livre. Simple et honnête."</p>
-      <div class="reviewer">
-        <!-- Avatar jaune pour contraste sur fond rouge -->
-        <div class="reviewer-avatar" style="background: var(--yellow); color: var(--red-dark);">AA</div>
-        <div>
-          <div class="reviewer-name" style="color: var(--yellow);">Ahmed Ali</div>
-          <div class="reviewer-loc" style="color: rgba(255,255,255,0.7);">📍 Centre ville</div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════
-     SECTION CTA — Appel à l'action final
-     Fond dégradé rouge → orange
-     ::before → motif SVG décoratif en arrière-plan
-     Contenu centré sur 700px max
-     ═══════════════════════════════════════════ -->
-<section class="cta" id="commander">
-  <div class="cta-content">
-    <h2>Prêt à commander<br>avec <span>KULMIYEH</span> ?</h2>
-    <p>Choisissez votre magasin ou restaurants, validez votre panier et votre commande part directement sur le WhatsApp du commerçant. Simple, rapide, sans intermédiaire.</p>
-
-    <!-- Numéro de téléphone mis en avant -->
-    <div class="cta-number">📱 +253 77 78 43 12</div>
-
-    <!-- Bouton WhatsApp vert — icône SVG incluse directement -->
-    <div class="cta-btns">
-      <a href="https://wa.me/25377784312?text=Bonjour%20Bara%2B%20je%20veux%20commander" 
-         class="btn-whatsapp" target="_blank">
-        <!-- SVG WhatsApp inline (pas besoin d'image externe) -->
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        Commander sur WhatsApp
-      </a>
-    </div>
-
-    <!-- 3 informations rapides en ligne -->
-    <div class="cta-info">
-      <div class="cta-info-item">🕐 <strong>08h – 22h</strong> · 7 jours sur 7</div>
-      <div class="cta-info-item">💳 <strong>Waffi</strong> · D-Money · CacPay</div>
-      <div class="cta-info-item">✔ Partenaires <strong>verifiés</strong></div>
-    </div>
-  </div>
-</section>
 
 <!-- ═══════════════════════════════════════════
      FOOTER — Pied de page
@@ -550,8 +349,8 @@
       <h4>Services</h4>
       <ul>
         <li><a href="#services">Services</a></li>
-        <li><a href="#">Pharmacies</a></li>
-        <li><a href="/pages/restaurants.html">Restaurants</a></li>
+        <li><a href="#pharmacies">Pharmacies</a></li>
+        <li><a href="pages/restaurants.html">Restaurants</a></li>
         <li><a href="#commander">Commander</a></li>
       </ul>
     </div>
@@ -571,8 +370,8 @@
 
   <!-- Barre de copyright en bas du footer -->
   <div class="footer-bottom">
-    <span>© 2026 Bara+</span>
-    <span>Livraison à domicile · Ali Sabieh, Djibouti</span>
+    <span>© 2026 Kulmiyeh</span>
+    <span>Marketplace · Ali Sabieh, Djibouti</span>
     <span>Fait avec ❤️ pour les assajogs</span>
   </div>
 </footer>
@@ -582,320 +381,6 @@
      Placé en bas du body pour que le HTML soit
      chargé avant que le JS y accède
      ═══════════════════════════════════════════ -->
-<script>
-
-  // ── 1. BADGE OUVERT / FERMÉ ──────────────────
-  // S'exécute immédiatement au chargement
-  // Vérifie l'heure locale et affiche le statut
-  (function() {
-    var badge  = document.getElementById('statusBadge');
-    var now    = new Date();        // heure actuelle
-    var h      = now.getHours();   // ex: 14 pour 14h00
-    var isOpen = h >= 7 && h < 23.9; // ouvert entre 09h et 22h
-
-    if (isOpen) {
-      // Vert avec point clignotant
-      badge.innerHTML = '<span style="width:8px;height:8px;border-radius:50%;background:#4CAF50;display:inline-block;animation:blink 1.5s infinite;"></span> Service disponible';
-      badge.style.background = 'rgba(76,175,80,0.18)';
-      badge.style.color      = '#A5D6A7';
-      badge.style.border     = '1px solid rgba(76,175,80,0.4)';
-    } else {
-      // Rouge sans animation
-      badge.innerHTML = '<span style="width:8px;height:8px;border-radius:50%;background:#EF5350;display:inline-block;"></span> Service Indisponible';
-      badge.style.background = 'rgba(239,83,80,0.18)';
-      badge.style.color      = '#EF9A9A';
-      badge.style.border     = '1px solid rgba(239,83,80,0.35)';
-    }
-  })(); // () à la fin → s'exécute immédiatement (IIFE)
-
-
-  // ── 2. MENU HAMBURGER ────────────────────────
-  // Gère l'ouverture/fermeture du menu mobile
-  var _menuOpen = false; // état : true = ouvert, false = fermé
-
-  // Bascule entre ouvert et fermé
-  function toggleMenu() {
-    _menuOpen ? closeMenu() : openMenu();
-  }
-
-  // Ouvre le menu + anime les barres en ✕
-  function openMenu() {
-    _menuOpen = true;
-    document.getElementById('mobileMenu').style.display = 'flex';
-    // Barre 1 : descend + pivote 45°
-    document.getElementById('bar1').style.transform = 'translateY(7px) rotate(45deg)';
-    // Barre 2 : disparaît
-    document.getElementById('bar2').style.opacity  = '0';
-    // Barre 3 : monte + pivote -45°
-    document.getElementById('bar3').style.transform = 'translateY(-7px) rotate(-45deg)';
-  }
-
-  // Ferme le menu + remet les barres à leur position initiale
-  function closeMenu() {
-    _menuOpen = false;
-    document.getElementById('mobileMenu').style.display = 'none';
-    document.getElementById('bar1').style.transform = 'none';
-    document.getElementById('bar2').style.opacity  = '1';
-    document.getElementById('bar3').style.transform = 'none';
-  }
-
-  // Ferme le menu si l'utilisateur clique en dehors
-  document.addEventListener('click', function(e) {
-    if (!_menuOpen) return; // rien à faire si déjà fermé
-    var menu = document.getElementById('mobileMenu');
-    var btn  = document.getElementById('menuBtn');
-    // contains() → vérifie si le clic est DANS le menu ou le bouton
-    if (!menu.contains(e.target) && !btn.contains(e.target)) {
-      closeMenu();
-    }
-  });
-
-
-  // ── 3. SMOOTH SCROLL ─────────────────────────
-  // Tous les liens commençant par "#" scrollent en douceur
-  // au lieu de sauter directement à la section
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', e => {
-      const target = document.querySelector(a.getAttribute('href'));
-      if (target) {
-        e.preventDefault();                         // annule le saut brusque
-        target.scrollIntoView({ behavior: 'smooth' }); // scroll animé
-      }
-    });
-  });
-
-
-  // ── 4. HEADER EFFET SCROLL ───────────────────
-  // Quand on scrolle plus de 50px, le header devient
-  // semi-transparent avec flou (glassmorphism)
-  window.addEventListener('scroll', () => {
-    const h = document.getElementById('header');
-    if (window.scrollY > 50) {
-      // Après 50px de scroll : fond semi-transparent + flou
-      h.style.background      = 'rgba(139,0,0,0.97)';
-      h.style.backdropFilter  = 'blur(10px)';
-    } else {
-      // En haut de page : fond plein original
-      h.style.background      = 'var(--red-dark)';
-      h.style.backdropFilter  = 'none';
-    }
-  });
-
-
-  // ── 5. ANIMATIONS AU SCROLL ──────────────────
-  // IntersectionObserver : détecte quand un élément
-  // entre dans le champ de vision de l'utilisateur
-  // → déclenche l'animation d'apparition
-  // ── 5. ANIMATIONS AU SCROLL ──────────────────
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.style.opacity = '1';
-      e.target.style.transform = 'translateY(0)';
-    }
-  });
-}, { threshold: 0.1 });
-
-// Applique l'état initial aux éléments qui doivent apparaître
-document.querySelectorAll('.step, .pass-card, .review-card, .zone-item, .service-card, .sc, .fi').forEach(el => {
-  el.style.opacity = '0';
-  el.style.transform = 'translateY(30px)';
-  el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-  observer.observe(el);
-});
-
-
-
-// PWA BARA +
-  // Attendre que tout le HTML soit chargé avant d'exécuter le script
-document.addEventListener('DOMContentLoaded', () => {
-
-  // Variable pour stocker l'événement d'installation PWA
-  let deferredPrompt;
-
-  // Création dynamique d'un bouton "Installer l'application"
-  const installBtn = document.createElement('button');
-
-  // Texte du bouton
-  installBtn.innerHTML = "📲 Installer l'application Bara+";
-
-  // Style inline (⚠️ pratique rapide mais pas propre en prod → mieux via CSS)
-  installBtn.style.cssText = `
-    position:fixed; 
-    bottom:20px; 
-    right:20px; 
-    z-index:9999; 
-    padding:15px 20px; 
-    background:#8B0000; 
-    color:white; 
-    border:none; 
-    border-radius:50px; 
-    display:none; 
-    cursor:pointer; 
-    font-weight:bold; 
-    box-shadow:0 10px 20px rgba(0,0,0,0.2);
-  `;
-
-  // Ajouter le bouton au body
-  document.body.appendChild(installBtn);
-
-  // 🔥 Vérifier si déjà installé (TOUS les cas)
-  if (window.matchMedia('(display-mode: standalone)').matches ||
-      window.navigator.standalone === true) {
-    installBtn.style.display = 'none';
-    return;
-  }
-
-  // Détection des appareils iOS
-  // ⚠️ iOS ne supporte pas "beforeinstallprompt"
-  const isIOS = 
-        /iPad|iPhone|iPod/.test(navigator.userAgent) ||
-        (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-
-  if (isIOS) {
-    // Modifier le texte du bouton pour iOS
-    installBtn.innerHTML = "📲 Ajouter à l'écran d'accueil (iOS)";
-
-    // Afficher le bouton directement
-    installBtn.style.display = 'block';
-
-    // Action au clic → afficher une instruction manuelle
-    installBtn.onclick = () => {
-      alert("Sur iOS, appuyez sur 'Partager' puis 'Ajouter à l'écran d'accueil'.");
-    };
-
-  } else {
-
-    // Écoute de l'événement qui permet l'installation PWA (Chrome, Edge, etc.)
-    window.addEventListener('beforeinstallprompt', (e) => {
-
-      // Empêche le popup automatique du navigateur
-      e.preventDefault();
-
-      // Sauvegarde de l'événement pour l'utiliser plus tard
-      deferredPrompt = e;
-
-      // Afficher le bouton d'installation
-      setTimeout(() => {
-          installBtn.style.display = 'block';
-      }, 3000);
-
-      installBtn.setAttribute('aria-label', "Installer l'application Bara+");
-    });
-
-    // Quand l'utilisateur clique sur le bouton
-    installBtn.addEventListener('click', () => {
-
-      if (!deferredPrompt) {
-        function showToast(msg) {
-            const t = document.createElement('div');
-            t.textContent = msg;
-            t.style.cssText = 'position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:#333;color:#fff;padding:10px 18px;border-radius:8px;z-index:9999;font-size:14px;';
-            document.body.appendChild(t);
-            setTimeout(() => t.remove(), 3500);
-           }
-        showToast("Installation non disponible pour le moment.");
-        return;
-      }
-
-      // Cacher le bouton
-      installBtn.style.display = 'none';
-
-      
-
-      // Vérifier si l'événement est disponible
-      
-
-      // Déclencher le popup d'installation
-      deferredPrompt.prompt();
-
-      // Attendre la réponse utilisateur (accepté ou refusé)
-      deferredPrompt.userChoice.then((choiceResult) => {
-
-        // Si accepté → log (⚠️ inutile en prod)
-        if (choiceResult.outcome === 'accepted') {
-          console.log('Installation acceptée');
-        } else {
-              console.log('Installation refusée');
-              trackEvent('pwa_install_dismissed'); 
-        }
-
-        // Réinitialiser pour éviter bugs
-        deferredPrompt = null;
-      });
-      
-    });
-  }
-
-  // Quand l'application est installée
-  window.addEventListener('appinstalled', () => {
-    function showToast(msg) {
-            const t = document.createElement('div');
-            t.textContent = msg;
-            t.style.cssText = 'position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:#333;color:#fff;padding:10px 18px;border-radius:8px;z-index:9999;font-size:14px;';
-            document.body.appendChild(t);
-            setTimeout(() => t.remove(), 3500);
-           }
-
-    // Cacher définitivement le bouton
-    installBtn.style.display = 'none';
-
-    // ⬆️  AMÉLIO — Ajouter un feedback utilisateur :
-    showToast("✅ Bara+ a été installée avec succès !");
-    console.log('[PWA] Application installée');
-  });
-});
-
-
-window.addEventListener('load',() => {
-
-  // Vérifier si le navigateur supporte les Service Workers
-/*  if ('serviceWorker' in navigator) {
-
-  // Enregistrement du Service Worker
-  navigator.serviceWorker.register('/bara-plus/sw.js', { scope: '/bara-plus/' })
-
-    // Si succès
-    .then(reg => {
-      console.log('SW enregistré, scope:', reg.scope); 
-
-      // Détecter une mise à jour et notifier l'utilisateur :
-      
-      reg.addEventListener('updatefound', () => {
-        const newWorker = reg.installing;
-        newWorker.addEventListener('statechange', () => {
-          if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-            function showToast(msg) {
-            const t = document.createElement('div');
-            t.textContent = msg;
-            t.style.cssText = 'position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:#333;color:#fff;padding:10px 18px;border-radius:8px;z-index:9999;font-size:14px;';
-            document.body.appendChild(t);
-            setTimeout(() => t.remove(), 3500);
-           }
-            showToast("Nouvelle version disponible. Rechargez la page.", {
-              action: () => window.location.reload()
-            });
-          }
-        });
-      });
-    })
-
-    // Si erreur
-    .catch(err => {
-      console.error('Erreur SW:', err);
-      if (typeof Sentry !== 'undefined') {
-             Sentry.captureException(err);
-           }
-    });
-  }*/
-  // SW désactivé temporairement
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.getRegistrations().then((registrations) => {
-    registrations.forEach((reg) => reg.unregister());
-  });
-}
-})
-
-</script>
-</body>
+    <script src="./assets/js/index.js"></script>
+  </body>
 </html>
