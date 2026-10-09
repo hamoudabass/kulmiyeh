@@ -730,7 +730,7 @@ function sendOrder() {
   msg += `https://www.google.com/maps?q=${lat},${lng}`;
 }
 
-  window.open('https://wa.me/25377784312?text=' + encodeURIComponent(msg), '_blank');
+  window.open('https://wa.me/25377222819?text=' + encodeURIComponent(msg), '_blank');
 
   // 🔥 ACTION CRITIQUE : Vider le panier après l'envoi
     setTimeout(() => {
