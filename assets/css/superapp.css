@@ -172,6 +172,10 @@ nav a:hover {
   background: linear-gradient(135deg, #FEF9C3 0%, #FDE68A 100%); 
 }
 
+.bg-gym {
+  background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
+}
+
 /* BADGES */
 .sc-badge-soon {
   position: absolute; top: 12px; left: 12px;

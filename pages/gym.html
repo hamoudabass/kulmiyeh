@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Salles de Sport — Kulmiyeh Ali Sabieh</title>
+<meta name="description" content="Comparez les salles de sport à Ali Sabieh : formules, tarifs, équipements. Inscription en ligne via WhatsApp.">
+<link rel="shortcut icon" href="../assets/images/3.png" type="image/x-icon">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style2.css">
+<link rel="stylesheet" href="../assets/css/gym.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="../index.html" class="nav-logo">
+    <img src="../assets/images/2.png" alt="Kulmiyeh">
+  </a>
+  <div class="nav-right">
+    <a href="../index.html" class="nav-link">Accueil</a>
+    <a href="restaurants.html" class="nav-link">Restaurants</a>
+    <a href="gym.html" class="nav-link active">Sport</a>
+    <a href="../index.html#services" class="nav-link">Services</a>
+    <a href="https://wa.me/25377784312?text=Bonjour%20Kulmiyeh%20!" target="_blank" class="nav-cta">Contact →</a>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="breadcrumb">
+    <a href="../index.html">Accueil</a> › <span>Salles de Sport</span>
+  </div>
+  <h1>Trouvez votre <span>salle de sport</span></h1>
+  <p>Comparez les salles d'Ali Sabieh, choisissez votre formule et inscrivez-vous en 2 minutes via WhatsApp.</p>
+</div>
+
+<!-- CONTROLS -->
+<div class="controls">
+  <div class="search-box">
+    <span style="color:var(--text2)">🔍</span>
+    <input type="text" id="searchInput" placeholder="Rechercher une salle ou un équipement...">
+  </div>
+  <div class="filter-pills">
+    <div class="fp on" onclick="filterGym(this,'all')">🏋️ Toutes</div>
+    <div class="fp" onclick="filterGym(this,'musculation')">💪 Musculation</div>
+    <div class="fp" onclick="filterGym(this,'cardio')">🏃 Cardio</div>
+    <div class="fp" onclick="filterGym(this,'boxe')">🥊 Boxe</div>
+    <div class="fp" onclick="filterGym(this,'fitness')">🧘 Fitness</div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+  <div>
+    <div class="resto-count"><strong id="gymCount">0</strong> salles disponibles</div>
+    <div class="gym-grid" id="gymGrid">
+      <!-- Cartes injectées par JS -->
+      <div class="empty" id="emptyState">
+        <div class="empty-icon">🔍</div>
+        <h3>Aucun résultat</h3>
+        <p>Essayez un autre mot-clé ou une autre catégorie.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ MODAL : DÉTAILS SALLE + FORMULAIRE ═══ -->
+<div class="overlay" id="gymOverlay" onclick="handleOverlayClick(event)">
+  <div class="modal gym-modal" id="gymModal">
+    <div class="modal-hero" id="gymModalHero">
+      <button class="modal-close" onclick="closeGymModal()">✕</button>
+    </div>
+    <div class="modal-body" id="gymModalBody"></div>
+  </div>
+</div>
+
+<!-- ═══ MODAL : CONFIRMATION ═══ -->
+<div class="overlay" id="confirmOverlay" onclick="if(event.target===this)closeConfirm()">
+  <div class="modal confirm-modal">
+    <div class="confirm-icon">✅</div>
+    <h2>Inscription envoyée !</h2>
+    <p>Votre demande a été transmise à <strong id="confirmGymName">la salle</strong> via WhatsApp.<br>
+    Le gérant vous contactera dans les prochaines minutes pour confirmer votre place.</p>
+    <button class="confirm-btn" onclick="closeConfirm()">Parfait 👍</button>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script src="../assets/js/gym.js"></script>
+</body>
+</html>
