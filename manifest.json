@@ -33,13 +33,6 @@
   ],
   "shortcuts": [
     {
-      "name": "Restaurants",
-      "short_name": "Restos",
-      "description": "Commander un plat",
-      "url": "/pages/restaurants.html",
-      "icons": [{ "src": "assets/images/icon-192.png", "sizes": "192x192" }]
-    },
-    {
       "name": "Services",
       "short_name": "Services",
       "description": "Voir tous les services",

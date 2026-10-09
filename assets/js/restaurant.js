@@ -281,6 +281,14 @@ function displayRestos() {
   }).join('');
 }
 
+function appelerResto() {
+  if (cart.length === 0) return;
+  const firstRestoName = cart[0].restoName;
+  const key = findRestoKeyByName(firstRestoName);
+  const phone = RESTAURANTS[key]?.phone;
+  if (phone) window.location.href = `tel:+${phone}`;
+}
+
 function updateAllRestoStatuses() {
   const restoCards = document.querySelectorAll('.rc.fi');
 
